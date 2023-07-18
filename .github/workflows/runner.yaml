@@ -1,0 +1,15 @@
+name: Runner
+
+on:
+  workflow_dispatch:
+    inputs:
+
+jobs:
+  ssh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: nextstrain/.github/actions/setup-ssh@master
+        with:
+          tailscale-auth-key: ${{ secrets.TAILSCALE_AUTH_KEY }}
+          wait-for-continue: true
