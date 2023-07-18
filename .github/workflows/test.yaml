@@ -13,6 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
+      - run: python --version
       - run: ./whatcoloris grape
       - run: ./whatcoloris papaya
       - run: ./whatcoloris pineapple
