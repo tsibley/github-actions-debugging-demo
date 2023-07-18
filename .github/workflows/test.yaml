@@ -11,12 +11,11 @@ jobs:
       run:
         shell: bash
     steps:
-      - if: github.run_attempt > 1 && runner.debug == 1
-        uses: nextstrain/.github/actions/setup-debugger@master
+      - uses: actions/checkout@v3
+
+      - uses: nextstrain/.github/actions/setup-debugger@master
         with:
           tailscale-auth-key: ${{ secrets.TAILSCALE_AUTH_KEY }}
-
-      - uses: actions/checkout@v3
 
       - run: ./whatcoloris grape
       - run: ./whatcoloris papaya
