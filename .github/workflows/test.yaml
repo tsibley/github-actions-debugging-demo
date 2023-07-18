@@ -16,3 +16,9 @@ jobs:
       - run: ./whatcoloris grape
       - run: ./whatcoloris papaya
       - run: ./whatcoloris pineapple
+
+      - if: failure()
+        uses: nextstrain/.github/actions/setup-ssh@master
+        with:
+          tailscale-auth-key: ${{ secrets.TAILSCALE_AUTH_KEY }}
+          wait-for-continue: true
